@@ -1,4 +1,4 @@
-																																																																																																																					//////saving to disk
+																																																																																																																					//saving to disk
 
 #include <librealsense2/rs.hpp> // Include RealSense Cross Platform API
 
@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+
 
 bool save_frame_raw_data(const std::string& filename, rs2::frame frame)
 {
@@ -15,14 +16,11 @@ bool save_frame_raw_data(const std::string& filename, rs2::frame frame)
     {
         std::ofstream outfile(filename.data(), std::ofstream::binary);
         outfile.write(static_cast<const char*>(image.get_data()), image.get_height()*image.get_stride_in_bytes());
-
-        outfile.close();
         ret = true;
     }
 
     return ret;
 }
-
 
 
 // Capture Example demonstrates how to
@@ -35,15 +33,13 @@ int main(int argc, char * argv[]) try
         .query_sensors().front().get_option(RS2_OPTION_DEPTH_UNITS);
     
     rs2::pipeline pipe;
-    rs2::config myconfig; //I am declaring the configuration object
-    myconfig.enable_stream(RS2_STREAM_DEPTH, 848, 480, RS2_FORMAT_Z16, 90); //This is the configuration that I want. 
-    pipe.start(myconfig);
+    pipe.start();
 
     while(true) // Application still alive?
     {
         rs2::frameset data = pipe.wait_for_frames(); // Wait for next set of frames from the camera
-	rs2::frame depth = data.get_depth_frame(); // Find and colorize the depth data     
-        save_frame_raw_data("1.bin", depth);      
+	rs2::frame depth = data.get_depth_frame(); // Find and colorize the depth data
+        save_frame_raw_data("depth.bin", depth);
     }
 
     return EXIT_SUCCESS;
