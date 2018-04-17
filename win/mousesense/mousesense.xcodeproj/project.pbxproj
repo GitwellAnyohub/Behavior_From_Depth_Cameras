@@ -237,16 +237,35 @@
 		57717745208295710044593C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(EFFECTIVE_PLATFORM_NAME)";
+				HEADER_SEARCH_PATHS = (
+					/Users/wgillis/dev/lab/librealsense/realsense2,
+					/usr/local/include,
+					/Users/wgillis/dev/lab/librealsense/src,
+					/Users/wgillis/dev/lab/librealsense/include,
+				);
+				OTHER_LDFLAGS = /Users/wgillis/dev/lab/librealsense/build/Debug/librealsense2.2.10.3.dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = /Users/wgillis/dev/lab/datta_realsense/win;
 			};
 			name = Debug;
 		};
 		57717746208295710044593C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/Users/wgillis/dev/lab/librealsense/realsense2,
+					/usr/local/include,
+					/Users/wgillis/dev/lab/librealsense/src,
+					/Users/wgillis/dev/lab/librealsense/include,
+				);
+				OTHER_LDFLAGS = /Users/wgillis/dev/lab/librealsense/build/Debug/librealsense2.2.10.3.dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = /Users/wgillis/dev/lab/datta_realsense/win;
 			};
 			name = Release;
 		};
