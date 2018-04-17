@@ -13,6 +13,7 @@
 
 void handle_interrupt(int sig) {
     printf("Program shutting down...");
+    exit(0);
 }
 
 int main(int argc, const char * argv[]) try {
