@@ -9,6 +9,19 @@
 #ifndef fileSaver_hpp
 #define fileSaver_hpp
 
+using namespace std;
 #include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <librealsense2/rs.hpp>
+
+class FileSaver {
+    ofstream file;
+public:
+    FileSaver(string, bool);
+    virtual void writeFrameNumber(unsigned long);
+    virtual void write(double);
+    virtual void write(rs2::video_frame);
+};
 
 #endif /* fileSaver_hpp */
