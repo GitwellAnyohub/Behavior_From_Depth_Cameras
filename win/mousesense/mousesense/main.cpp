@@ -52,13 +52,13 @@ int main(int argc, const char * argv[]) {
     const int height = 480;
     const int fps = 90;
     
-    rs2::context ctx;
-    rs2::device_list devices = ctx.query_devices();
-    rs2::device dev = devices.front();
-    rs400::advanced_mode adv = dev.as<rs400::advanced_mode>();
-    string params = load_json("d415paramset_1.json");
-    adv.load_json(params);
-    printf("%s", adv.serialize_json().c_str());
+//    rs2::context ctx;
+//    rs2::device_list devices = ctx.query_devices();
+//    rs2::device dev = devices.front();
+//    rs400::advanced_mode adv = dev.as<rs400::advanced_mode>();
+//    string params = load_json("d415paramset_1.json");
+//    adv.load_json(params);
+//    printf("%s", adv.serialize_json().c_str());
     
     // setup capturing the interrupt
     signal(SIGINT, &handle_interrupt);
@@ -76,11 +76,7 @@ int main(int argc, const char * argv[]) {
     config.enable_stream(RS2_STREAM_DEPTH, 0, width, height, RS2_FORMAT_Z16, fps);
     
     rs2::pipeline_profile profile = pipe.start(config);
-    
-
-
-//    dev.load_json(params);
-    
+        
 
     printf("Initialized\n");
     while(saving) {
