@@ -48,9 +48,9 @@ void saving_thread() {
 }
 
 int main(int argc, const char * argv[]) {
-    const int width = 848;
-    const int height = 480;
-    const int fps = 90;
+    const int width = 1280;
+    const int height = 720;
+    const int fps = 30;
     
 //    rs2::context ctx;
 //    rs2::device_list devices = ctx.query_devices();
